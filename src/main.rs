@@ -1,7 +1,7 @@
 use std::thread::sleep;
 use std::time::{Duration, SystemTime};
 
-fn main() {
+fn _main() {
     loop {
         // Print current time
         let unix_time = SystemTime::now()
@@ -12,4 +12,12 @@ fn main() {
         // Sleep one second
         sleep(Duration::from_secs(1));
     }
+}
+
+fn main() {
+    // Print current time
+    let unix_time = SystemTime::now()
+        .duration_since(SystemTime::UNIX_EPOCH)
+        .unwrap();
+    print!("{}", unix_time.as_secs());
 }
